@@ -35,6 +35,7 @@
   --color-glass-border: var(--glass-border);
   --color-forest: var(--forest);
   --color-sage: var(--sage);
+  --background-image-page-wash: var(--page-wash);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

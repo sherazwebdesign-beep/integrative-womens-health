@@ -45,7 +45,7 @@ function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="border-b border-primary/10 bg-forest px-5 py-2 text-center text-[11px] font-semibold tracking-wide text-primary-foreground sm:text-xs">
-        NOW ACCEPTING NEW PATIENTS <span className="mx-2 text-primary-foreground/50">✦</span> SAME-WEEK APPOINTMENTS AVAILABLE <a className="ml-2 underline underline-offset-4" href={PHONE}>CALL US</a>
+        PERSONALIZED WOMEN'S HEALTHCARE IN HAWAII <span className="mx-2 text-primary-foreground/50">✦</span> <a className="underline underline-offset-4" href={BOOKING} target="_blank" rel="noopener noreferrer">BOOK A VISIT</a>
       </div>
       <header className="sticky top-0 z-40 border-b border-primary/10 bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-5 px-5 py-3 lg:px-10">
@@ -68,21 +68,21 @@ function HomePage() {
       <main>
         {/* 1. Hero */}
         <section className="relative overflow-hidden bg-background">
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,var(--cream)_0%,var(--cream-deep)_56%,var(--sage)_150%)]" aria-hidden="true" />
-          <div className="relative mx-auto grid max-w-[1320px] items-center gap-10 px-5 pb-12 pt-12 md:grid-cols-12 md:gap-10 md:pb-16 md:pt-16 lg:px-10 lg:pt-20">
+          <div className="absolute inset-0 bg-page-wash" aria-hidden="true" />
+          <div className="relative mx-auto grid max-w-[1320px] items-center gap-6 px-5 pb-7 pt-8 md:grid-cols-12 md:gap-10 md:pb-16 md:pt-16 lg:px-10 lg:pt-20">
             <div className="md:col-span-7">
-              <p className="section-kicker mb-6 flex items-center gap-3"><span className="h-px w-9 bg-primary" />PERSONALIZED CARE FOR EVERY CHAPTER</p>
-              <h1 className="max-w-[760px] font-display text-[clamp(3.5rem,6.5vw,7.2rem)] font-medium leading-[.88] text-ink">Feel like <em className="font-normal text-primary">yourself</em><br />again. And then<br />some.</h1>
-              <p className="mt-7 max-w-[520px] text-[15px] leading-[1.8] text-foreground/75 sm:text-base">Hormones, longevity, and preventive medicine for women who want answers, not quick fixes. Root-cause care that meets you where you are.</p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <p className="section-kicker mb-4 flex items-center gap-3 md:mb-6"><span className="h-px w-9 bg-primary" />PERSONALIZED CARE FOR EVERY CHAPTER</p>
+              <h1 className="max-w-[760px] font-display text-[clamp(3rem,6.5vw,7.2rem)] font-medium leading-[.88] text-ink">Feel like <em className="font-normal text-primary">yourself</em><br />again. And then<br />some.</h1>
+              <p className="mt-5 max-w-[520px] text-[15px] leading-[1.65] text-foreground/75 md:mt-7 md:leading-[1.8] sm:text-base">Hormones, longevity, and preventive medicine for women who want answers, not quick fixes. Root-cause care that meets you where you are.</p>
+              <div className="mt-5 flex flex-wrap gap-2.5 md:mt-8 md:gap-3">
                 <Button asChild variant="clinic" size="clinicLg"><a href={CONSULT} target="_blank" rel="noopener noreferrer">Book a Consultation <ArrowUpRight /></a></Button>
                 <Button asChild variant="clinicOutline" size="clinicLg"><a href="#education">Explore Patient Education <ArrowRight /></a></Button>
               </div>
-              <div className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-primary/15 pt-5 text-xs font-semibold text-foreground/60"><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Double board-certified care</span><span className="flex items-center gap-2"><Leaf className="size-4 text-primary" /> Root-cause approach</span><span className="flex items-center gap-2"><Heart className="size-4 text-primary" /> Made for women</span></div>
+              <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2 border-t border-primary/15 pt-4 text-xs font-semibold text-foreground/60 md:mt-11 md:gap-y-3 md:pt-5"><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Experienced care</span><span className="flex items-center gap-2"><Leaf className="size-4 text-primary" /> Root-cause approach</span><span className="flex items-center gap-2"><Heart className="size-4 text-primary" /> Made for women</span></div>
             </div>
             <div className="relative md:col-span-5">
-              <div className="relative mx-auto aspect-[4/4.6] max-h-[575px] max-w-[500px] overflow-hidden rounded-[8px] border-[7px] border-glass shadow-[0_26px_70px_-32px_var(--brand)]"><img src={heroImage} alt="Woman enjoying a calm moment in a bright Hawaii setting" className="h-full w-full object-cover" width="1088" height="1280" fetchPriority="high" /></div>
-              <div className="site-glass absolute -bottom-5 left-0 max-w-[260px] rounded-[6px] px-5 py-4 shadow-lg sm:-left-7"><span className="font-display text-[25px] italic leading-none text-primary">Whole-person wellness.</span><p className="mt-1 text-[11px] leading-relaxed text-foreground/70">Care for how you feel, live, and thrive.</p></div>
+              <div className="relative mx-auto h-[170px] max-w-[500px] overflow-hidden rounded-[8px] border-[5px] border-glass shadow-[0_26px_70px_-32px_var(--brand)] sm:aspect-[4/4.6] sm:h-auto sm:max-h-[575px] sm:border-[7px]"><img src={heroImage} alt="Woman enjoying a calm moment in a bright Hawaii setting" className="h-full w-full object-cover object-[center_30%] sm:object-center" width="1088" height="1280" fetchPriority="high" /></div>
+              <div className="site-glass absolute -bottom-5 left-0 hidden max-w-[260px] rounded-[6px] px-5 py-4 shadow-lg sm:block sm:-left-7"><span className="font-display text-[25px] italic leading-none text-primary">Whole-person wellness.</span><p className="mt-1 text-[11px] leading-relaxed text-foreground/70">Care for how you feel, live, and thrive.</p></div>
             </div>
           </div>
         </section>
