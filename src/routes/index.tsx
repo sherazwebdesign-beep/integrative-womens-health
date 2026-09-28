@@ -88,7 +88,7 @@ function HomePage() {
         </section>
 
         {/* 2. Services */}
-        <section id="services" className="bg-cream py-20 lg:py-28">
+        <section id="services" className="bg-cream pb-20 pt-9 md:pt-20 lg:py-28">
           <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
             <div className="mb-9 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="section-kicker">WHAT WE CAN HELP WITH</p><h2 className="section-heading mt-3 max-w-[650px]">Care for the whole of you.</h2></div><a href="#" className="text-xs font-bold uppercase tracking-wider text-primary hover:underline">Explore all services <ArrowRight className="ml-2 inline size-4" /></a></div>
             <div className="grid gap-4 md:grid-cols-3">{services.map((service) => <article key={service.title} className="site-glass group flex min-h-[280px] flex-col rounded-[6px] p-7 transition-transform duration-300 hover:-translate-y-1 lg:p-9"><div className="flex items-start justify-between"><div className="flex size-12 items-center justify-center rounded-full bg-secondary text-primary"><service.icon size={23} strokeWidth={1.4} /></div><span className="font-display text-2xl italic text-primary/40">{service.label}</span></div><h3 className="mt-9 font-display text-[30px] font-medium leading-none">{service.title}</h3><p className="mt-3 max-w-[290px] text-sm leading-relaxed text-foreground/65">{service.text}</p><a href="#" className="mt-auto flex items-center gap-2 pt-6 text-xs font-bold uppercase tracking-wider text-primary">Learn more <ArrowRight size={15} /></a></article>)}</div>
