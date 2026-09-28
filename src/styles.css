@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Manrope", sans-serif;
+  --font-sans: "Inter", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -35,6 +35,7 @@
   --color-glass-border: var(--glass-border);
   --color-forest: var(--forest);
   --color-sage: var(--sage);
+  --background-image-page-wash: var(--page-wash);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

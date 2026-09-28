@@ -19,6 +19,9 @@ const buttonVariants = cva(
         clinic: "rounded-full bg-primary text-primary-foreground shadow-sm hover:bg-brand-soft hover:text-primary-foreground",
         clinicOutline: "rounded-full border border-primary/30 bg-glass text-primary backdrop-blur-md hover:bg-card",
         clinicText: "rounded-full text-primary hover:bg-secondary",
+        clinicVideo: "rounded-none bg-muted text-primary hover:bg-muted",
+        clinicLight: "rounded-full bg-background text-primary hover:bg-secondary",
+        clinicInverse: "rounded-full border border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10",
       },
       size: {
         default: "h-9 px-4 py-2",
