@@ -11,4 +11,4 @@
 
 - Keep the requested redesign as a single home route; other navigation entries remain # placeholders, while booking delegates to the clinic's existing booking site so availability is not fabricated.
 - Preserve original clinic media as lovable-assets pointers, and use generated editorial imagery only for illustrative home and education visuals; never represent an illustration as the real clinician.
-- Keep the homepage's patient journey ordered as introduction, provider, focus areas, care approach, education, scheduling, patient voices, and invitation; this makes the practice and next step easy to understand without copying another clinic's claims.
+- Keep the single homepage organized as Hero, About Dr. Guzman, Services, Our Approach (with educational videos), and booking CTA; this follows the clinic's requested Home/About structure without inventing destination pages.
