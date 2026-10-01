@@ -1,0 +1,3 @@
+- [x] Organize Home / About into Hero, About Dr. Guzman, Services, Our Approach, and CTA.
+- [x] Show four main navigation tabs, Services and Patient Resources dropdowns, and Book Now in the header.
+- [ ] Verify desktop/mobile navigation, media, and booking links.
