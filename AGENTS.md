@@ -9,6 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep the requested redesign as a single home route; other navigation entries remain # placeholders, while booking delegates to the clinic's existing booking site so availability is not fabricated.
-- Preserve original clinic media as lovable-assets pointers, and use generated editorial imagery only for illustrative home and education visuals; never represent an illustration as the real clinician.
-- Keep the single homepage organized as Hero, About Dr. Guzman, Services, Our Approach (with educational videos), and booking CTA; this follows the clinic's requested Home/About structure without inventing destination pages.
+- Site has five routes (/, /services, /membership, /resources, /faq) sharing header/footer via `SiteLayout`; keeps chrome consistent across pages.
+- Booking and portal URLs live only in `src/lib/site.ts` (currently example OptiMantra links); scheduler is a placeholder until a real link exists so availability is never fabricated.
+- Preserve original clinic media as lovable-assets pointers; never represent generated illustration as the real clinician.
+- Videos use `VideoCard` (youtube-nocookie / Vimeo dnt, no id = "coming soon" slot) so the doctor's videos can be dropped in by id.
