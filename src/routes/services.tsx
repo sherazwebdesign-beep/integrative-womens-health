@@ -29,7 +29,7 @@ const categories = [
 
 function ServicesPage() {
   const [active, setActive] = useState(0);
-  const c = categories[active];
+  const c = categories[active] ?? categories[0]!;
   return (
     <SiteLayout>
       <PageHero kicker="Services" title={<>Comprehensive care,<br /><em className="text-primary">clearly organized.</em></>} text="Choose a category to see what's included. Every service begins with a conversation about you." />
