@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, BookOpen, Crown, Leaf, Sparkles, Stethoscope } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Crown, Leaf, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { OPTIMANTRA_BOOKING } from "@/lib/site";
