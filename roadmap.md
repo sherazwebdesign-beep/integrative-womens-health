@@ -1,3 +1,3 @@
-- [x] Organize Home / About into Hero, About Dr. Guzman, Services, Our Approach, and CTA.
-- [x] Show four main navigation tabs, Services and Patient Resources dropdowns, and Book Now in the header.
-- [x] Verify desktop/mobile navigation, media, and booking links.
+- [x] Build 5 pages (Home/About, Services, Membership, Patient Resources, FAQ & Booking) in burgundy.
+- [ ] Make Home visually distinct from the inner pages (not same layout/content).
+- [ ] Waiting on client: real OptiMantra links and doctor's video links.
