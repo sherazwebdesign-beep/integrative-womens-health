@@ -80,7 +80,6 @@ export function PageHero({ kicker, title, text }: { kicker: string; title: React
         </div>
         <p className="border-l-2 border-primary pl-5 text-base leading-[1.8] text-foreground/75">{text}</p>
       </div>
-      </div>
     </section>
   );
 }
