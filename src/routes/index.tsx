@@ -3,6 +3,8 @@ import { ArrowRight, ArrowUpRight, BookOpen, Crown, Leaf, Sparkles, Stethoscope 
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { OPTIMANTRA_BOOKING } from "@/lib/site";
+import { VideoCard } from "@/components/site/VideoCard";
+import interviewAsset from "@/assets/dr-guzman-perimenopause-interview.asset.json";
 import doctorAsset from "@/assets/christella-guzman-original.asset.json";
 import clinicAsset from "@/assets/dr-guzman-clinic.asset.json";
 
@@ -78,6 +80,33 @@ function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-primary py-20 text-primary-foreground lg:py-24">
+        <div className="mx-auto grid max-w-[1320px] items-center gap-10 px-5 md:grid-cols-[1.2fr_.8fr] lg:px-10">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-primary-foreground/70">Concierge membership</p>
+            <h2 className="mt-4 font-display text-5xl font-medium leading-[.95] sm:text-6xl">Your provider,<br /><em>always within reach.</em></h2>
+            <p className="mt-6 max-w-[480px] text-sm leading-[1.9] text-primary-foreground/80">Ongoing, personalized care with priority scheduling and support between visits.</p>
+          </div>
+          <div className="border border-primary-foreground/25 p-8">
+            <p><span className="font-display text-7xl">$235</span> <span className="text-sm text-primary-foreground/75">/ month</span></p>
+            <p className="mt-2 text-xs uppercase tracking-wider text-primary-foreground/70">Minimum 1-year commitment</p>
+            <Button asChild variant="clinicLight" size="clinicLg" className="mt-8 w-full rounded-sm"><Link to="/membership">View Membership <ArrowRight /></Link></Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-2 lg:gap-20 lg:px-10">
+          <div>
+            <p className="section-kicker">Patient education</p>
+            <h2 className="section-heading mt-4">Hear it from<br /><em className="text-primary">Dr. Guzman.</em></h2>
+            <p className="mt-6 max-w-[460px] text-sm leading-[1.9] text-foreground/75">Short videos explain treatments, what to expect, and how functional medicine differs from covered gynecology.</p>
+            <Button asChild variant="clinicOutline" size="clinicLg" className="mt-8 rounded-sm"><Link to="/resources">Visit Patient Resources <ArrowRight /></Link></Button>
+          </div>
+          <VideoCard title="Dr. Guzman on perimenopause" id="7wsHbPHKs_s" image={interviewAsset.url} />
         </div>
       </section>
     </SiteLayout>

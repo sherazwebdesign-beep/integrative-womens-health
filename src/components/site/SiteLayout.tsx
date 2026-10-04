@@ -72,11 +72,14 @@ function Footer() {
 
 export function PageHero({ kicker, title, text }: { kicker: string; title: ReactNode; text: string }) {
   return (
-    <section className="border-b border-border bg-cream">
-      <div className="mx-auto max-w-[1320px] px-5 py-16 lg:px-10 lg:py-24">
-        <p className="section-kicker">{kicker}</p>
-        <h1 className="mt-5 max-w-[900px] font-display text-5xl font-medium leading-[.95] sm:text-7xl">{title}</h1>
-        <p className="mt-6 max-w-[620px] text-base leading-[1.8] text-foreground/75">{text}</p>
+    <section className="border-b border-border bg-blush">
+      <div className="mx-auto grid max-w-[1320px] items-end gap-8 px-5 py-14 md:grid-cols-[1.3fr_1fr] lg:px-10 lg:py-20">
+        <div>
+          <p className="text-xs text-muted-foreground"><Link to="/" className="hover:text-primary">Home</Link> <span className="mx-1">/</span> <span className="text-primary">{kicker}</span></p>
+          <h1 className="mt-5 font-display text-5xl font-medium leading-[.95] sm:text-6xl">{title}</h1>
+        </div>
+        <p className="border-l-2 border-primary pl-5 text-base leading-[1.8] text-foreground/75">{text}</p>
+      </div>
       </div>
     </section>
   );
