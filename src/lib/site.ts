@@ -5,7 +5,8 @@ export const PHONE = "tel:+18082723651";
 export const PHONE_LABEL = "(808) 272-3651";
 
 export const nav = [
-  { label: "Home / About", to: "/" as const },
+  { label: "Home", to: "/" as const },
+  { label: "About", to: "/about" as const },
   { label: "Services", to: "/services" as const },
   { label: "Membership", to: "/membership" as const },
   { label: "Patient Resources", to: "/resources" as const },
