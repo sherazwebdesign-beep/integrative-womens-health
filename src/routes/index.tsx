@@ -56,12 +56,8 @@ function HomePage() {
           <div className="flex flex-col justify-center">
             <p className="section-kicker">About the clinic & provider</p>
             <h2 className="section-heading mt-4">Two kinds of care.<br /><em className="text-primary">One trusted place.</em></h2>
-            <p className="mt-6 text-sm leading-[1.9] text-foreground/75">Integrative Women's Health Hawaii brings traditional, insurance-covered gynecology together with root-cause functional and regenerative medicine. You get the screenings you need and a deeper look at why you don't feel your best.</p>
-            <p className="mt-4 text-sm leading-[1.9] text-foreground/75">Dr. Christella Guzman, DNP, has more than 20 years of experience in women's health and cardiology and makes room for your full story — not just a list of symptoms.</p>
-            <div className="mt-7 grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
-              <div className="flex gap-3"><Stethoscope className="shrink-0 text-primary" size={20} /><div><p className="font-semibold">Covered gynecology</p><p className="text-xs text-muted-foreground">Based on your insurance</p></div></div>
-              <div className="flex gap-3"><Leaf className="shrink-0 text-primary" size={20} /><div><p className="font-semibold">Functional & regenerative</p><p className="text-xs text-muted-foreground">Root-cause, personalized</p></div></div>
-            </div>
+            <p className="mt-6 text-sm leading-[1.9] text-foreground/75">Integrative Women's Health Hawaii brings traditional, insurance-covered gynecology together with root-cause functional and regenerative medicine, led by Dr. Christella Guzman, DNP.</p>
+            <Button asChild variant="clinicOutline" size="clinicLg" className="mt-8 w-fit rounded-sm"><Link to="/about">Meet Dr. Guzman <ArrowRight /></Link></Button>
           </div>
         </div>
       </section>
