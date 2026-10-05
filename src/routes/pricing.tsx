@@ -43,7 +43,7 @@ function PricingPage() {
               <p className="mt-5"><span className="font-display text-6xl">{t.price}</span> <span className={`text-sm ${t.featured ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{t.unit}</span></p>
               <p className={`mt-6 text-xs font-bold uppercase tracking-wider ${t.featured ? "" : "text-primary"}`}>{t.featured ? "What membership includes" : "Includes"}</p>
               <ul className="mt-3 space-y-2.5">{t.items.map((i) => <li key={i} className="flex gap-2 text-sm"><Check size={16} className={`mt-0.5 shrink-0 ${t.featured ? "" : "text-primary"}`} />{i}</li>)}</ul>
-              <Button asChild variant={t.featured ? "clinicLight" : "clinic"} size="clinicLg" className="mt-auto w-full rounded-sm pt-0"><a href={OPTIMANTRA_BOOKING} target="_blank" rel="noopener noreferrer" className="mt-8">{t.cta} <ArrowUpRight /></a></Button>
+              <div className="mt-auto pt-8"><Button asChild variant={t.featured ? "clinicLight" : "clinic"} size="clinicLg" className="w-full rounded-sm"><a href={OPTIMANTRA_BOOKING} target="_blank" rel="noopener noreferrer">{t.cta} <ArrowUpRight /></a></Button></div>
             </div>
           ))}
         </div>
