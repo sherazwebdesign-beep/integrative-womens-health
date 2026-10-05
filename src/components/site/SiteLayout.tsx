@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { ArrowUpRight, Clock, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Clock, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/womens-wellness-mark.asset.json";
-import { nav, OPTIMANTRA_BOOKING, OPTIMANTRA_PORTAL, PHONE, PHONE_LABEL } from "@/lib/site";
+import { services, resources } from "@/lib/content";
+import { OPTIMANTRA_BOOKING, OPTIMANTRA_PORTAL, PHONE, PHONE_LABEL } from "@/lib/site";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -15,26 +16,49 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <img src={logoAsset.url} alt="Integrative Women's Health Hawaii logo" className="h-11 w-9 shrink-0 object-contain sm:h-14 sm:w-11" width="44" height="56" />
             <span className="flex min-w-0 flex-col leading-none"><span className="font-display text-[16px] font-semibold sm:text-[22px]">Integrative Women's Health</span><span className="mt-1 text-[9px] font-bold uppercase tracking-widest text-primary sm:text-[10px]">Hawaii</span></span>
           </Link>
-          <nav aria-label="Main navigation" className="hidden items-center gap-6 xl:flex">
-            {nav.map((n) => (
-              <Link key={n.to} to={n.to} activeOptions={{ exact: true }} className="border-b border-transparent pb-1 text-[11px] font-bold uppercase tracking-wider text-foreground hover:text-primary" activeProps={{ className: "!border-primary !text-primary" }}>{n.label}</Link>
-            ))}
+          <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex">
+            <Link to="/" activeOptions={{ exact: true }} className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Home</Link>
+            <Dropdown label="Services" base="services" items={services} />
+            <Dropdown label="Patient Resources" base="resources" items={resources} />
+            <Link to="/pricing" className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Pricing</Link>
           </nav>
           <div className="flex shrink-0 items-center gap-2">
-            <Button asChild variant="clinicOutline" size="clinic" className="hidden h-10 rounded-sm px-4 text-xs md:inline-flex"><a href={OPTIMANTRA_PORTAL} target="_blank" rel="noopener noreferrer">Patient Portal</a></Button>
             <Button asChild variant="clinic" size="clinic" className="h-9 rounded-sm px-3 text-xs sm:h-10 sm:px-5"><a href={OPTIMANTRA_BOOKING} target="_blank" rel="noopener noreferrer">Book Now <ArrowUpRight className="hidden sm:block" /></a></Button>
             <Button variant="clinicOutline" size="icon" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="rounded-sm xl:hidden" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
           </div>
         </div>
         {open && (
-          <nav aria-label="Mobile navigation" className="border-t border-border bg-background px-5 py-3 xl:hidden">
-            {nav.map((n) => <Link key={n.to} to={n.to} onClick={() => setOpen(false)} activeOptions={{ exact: true }} className="block border-b border-border py-3 text-sm font-bold uppercase" activeProps={{ className: "text-primary" }}>{n.label}</Link>)}
-            <a href={OPTIMANTRA_PORTAL} target="_blank" rel="noopener noreferrer" className="block py-3 text-sm font-bold uppercase text-primary">Patient Portal</a>
+          <nav aria-label="Mobile navigation" className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-3 xl:hidden">
+            <Link to="/" onClick={() => setOpen(false)} className="block border-b border-border py-3 text-sm font-bold uppercase">Home</Link>
+            <p className="pt-3 text-xs font-bold uppercase text-primary">Services</p>
+            {services.map((x) => <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
+            <p className="border-t border-border pt-3 text-xs font-bold uppercase text-primary">Patient Resources</p>
+            {resources.map((x) => <Link key={x.slug} to="/resources/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
+            <Link to="/pricing" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Pricing</Link>
           </nav>
         )}
       </header>
       <main>{children}</main>
       <Footer />
+    </div>
+  );
+}
+
+const navCls = "border-b border-transparent pb-1 text-[11px] font-bold uppercase tracking-wider text-foreground hover:text-primary";
+
+function Dropdown({ label, base, items }: { label: string; base: "services" | "resources"; items: { slug: string; name: string; short: string }[] }) {
+  return (
+    <div className="group relative">
+      <button type="button" className={`${navCls} flex items-center gap-1`}>{label} <ChevronDown size={13} /></button>
+      <div className="invisible absolute left-1/2 top-full z-50 w-[340px] -translate-x-1/2 pt-4 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+        <div className="border border-border bg-background p-2 shadow-xl">
+          {items.map((x) => (
+            <Link key={x.slug} to={base === "services" ? "/services/$slug" : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
+              <span className="block text-sm font-semibold">{x.name}</span><span className="text-xs text-muted-foreground">{x.short}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -55,8 +79,8 @@ function Footer() {
             <div className="flex items-center gap-3"><img src={logoAsset.url} alt="" className="h-14 w-11 object-contain" width="44" height="56" loading="lazy" /><div className="font-display text-[22px] font-semibold leading-none">Integrative Women's Health <span className="block text-base text-primary">Hawaii</span></div></div>
             <p className="mt-4 max-w-[300px] text-sm leading-relaxed text-muted-foreground">Insurance-based gynecology together with functional, regenerative, and concierge care, led by Dr. Christella Guzman, DNP.</p>
           </div>
-          <div><p className="section-kicker">Explore</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{nav.map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}</div></div>
-          <div><p className="section-kicker">Services</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{["Functional Medicine", "Regenerative Treatments", "IV Services", "Lab Testing", "Gynecology"].map((s) => <Link key={s} to="/services" className="hover:text-primary">{s}</Link>)}</div></div>
+          <div><p className="section-kicker">Patient Resources</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{resources.map((n) => <Link key={n.slug} to="/resources/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}<Link to="/pricing" className="hover:text-primary">Pricing</Link></div></div>
+          <div><p className="section-kicker">Services</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{services.map((n) => <Link key={n.slug} to="/services/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}</div></div>
           <div><p className="section-kicker">Contact</p><div className="mt-4 space-y-3 text-sm text-foreground/75">
             <p className="flex gap-2"><MapPin size={16} className="mt-0.5 shrink-0 text-primary" />Honolulu, Hawaii</p>
             <a className="flex gap-2 hover:text-primary" href={PHONE}><Phone size={16} className="mt-0.5 shrink-0 text-primary" />{PHONE_LABEL}</a>
@@ -84,15 +108,3 @@ export function PageHero({ kicker, title, text }: { kicker: string; title: React
   );
 }
 
-export function SchedulerEmbed() {
-  return (
-    <div className="border border-border bg-card">
-      <div className="flex items-center justify-between border-b border-border px-5 py-4"><p className="section-kicker">OptiMantra scheduling</p><span className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-2 rounded-full bg-sage" />Example placeholder</span></div>
-      <div className="flex min-h-[420px] flex-col items-center justify-center gap-4 p-8 text-center">
-        <p className="font-display text-3xl">Live scheduling appears here</p>
-        <p className="max-w-[420px] text-sm text-muted-foreground">Once the clinic's OptiMantra link is added, the booking calendar will be embedded in this space.</p>
-        <Button asChild variant="clinic" size="clinicLg" className="rounded-sm"><a href={OPTIMANTRA_BOOKING} target="_blank" rel="noopener noreferrer">Open Booking <ArrowUpRight /></a></Button>
-      </div>
-    </div>
-  );
-}
