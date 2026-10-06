@@ -1,3 +1,2 @@
-- [x] Build 5 pages (Home/About, Services, Membership, Patient Resources, FAQ & Booking) in burgundy.
-- [x] Make Home visually distinct from the inner pages (not same layout/content).
-- [ ] Waiting on client: real OptiMantra links and doctor's video links.
+- [x] Full checklist revision: 9-block Home, 5 service pages, 6 resource pages, Pricing, dropdown nav, real booking link.
+- [ ] Waiting on client: doctor's video links for the "coming soon" video slots.
