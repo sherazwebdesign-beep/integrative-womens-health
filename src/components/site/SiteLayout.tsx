@@ -16,7 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <Link to="/" aria-label="Home" className="flex min-w-0 items-center gap-2.5">
             <img src={wideLogo.url} alt="Integrative Women's Health Hawaii" className="h-11 w-auto sm:h-14" width="240" height="72" />
           </Link>
-          <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">
             <Link to="/" activeOptions={{ exact: true }} className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Home</Link>
             <Dropdown label="Services" base="services" items={services} />
             <Dropdown label="Patient Resources" base="resources" items={resources} />
@@ -55,7 +55,7 @@ function Dropdown({ label, base, items }: { label: string; base: "services" | "r
       <div className="invisible absolute left-1/2 top-full z-50 w-[340px] -translate-x-1/2 pt-4 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         <div className="border border-border bg-background p-2 shadow-xl">
           {items.map((x) => (
-            <Link key={x.slug} to={base === "services" ? "/services/$slug" : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
+            <Link key={x.slug} to={base === "services" ? (x.slug === "medical-weight-loss" ? "/weight-metabolic-health" : "/services/$slug") : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
               <span className="block text-sm font-semibold">{x.name}</span><span className="text-xs text-muted-foreground">{x.short}</span>
             </Link>
           ))}
