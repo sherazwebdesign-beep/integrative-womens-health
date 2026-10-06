@@ -5,8 +5,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { OPTIMANTRA_BOOKING } from "@/lib/site";
 import { VideoCard } from "@/components/site/VideoCard";
 import interviewAsset from "@/assets/dr-guzman-perimenopause-interview.asset.json";
-import doctorAsset from "@/assets/christella-guzman-original.asset.json";
-import clinicAsset from "@/assets/dr-guzman-clinic.asset.json";
+import doctorAsset from "@/assets/aubergine.asset.json";
+import clinicAsset from "@/assets/long_sleeve_blk_floral.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,7 +58,7 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3"><BookBtn>Book a Consultation</BookBtn></div>
           </div>
           <figure className="relative m-0 h-[380px] overflow-hidden sm:h-[480px] lg:h-[560px]">
-            <img src={doctorAsset.url} alt="Dr. Christella Guzman, DNP" className="h-full w-full object-cover object-[center_27%]" fetchPriority="high" />
+            <img src={doctorAsset.url} alt="Dr. Christella Guzman, DNP" className="h-full w-full object-cover object-[center_20%]" fetchPriority="high" />
             <figcaption className="absolute bottom-0 left-0 bg-primary px-5 py-3 text-xs font-medium text-primary-foreground">Dr. Christella Guzman, DNP</figcaption>
           </figure>
         </div>
@@ -110,7 +110,7 @@ function HomePage() {
           <h2 className="section-heading mt-4">Find your path.</h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((c) => (
-              <Link key={c.slug} to="/services/$slug" params={{ slug: c.slug }} className="group flex min-h-[220px] flex-col border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
+              <Link key={c.slug} to={c.slug === "medical-weight-loss" ? "/weight-metabolic-health" : "/services/$slug"} params={{ slug: c.slug }} className="group flex min-h-[220px] flex-col border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
                 <span className="flex size-12 items-center justify-center rounded-full bg-blush text-primary"><c.icon size={22} strokeWidth={1.5} /></span>
                 <h3 className="mt-6 font-display text-[26px] font-semibold leading-tight">{c.title}</h3>
                 <span className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-bold uppercase text-primary">Learn more <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></span>
@@ -165,7 +165,7 @@ function HomePage() {
       {/* 8 About */}
       <section className="py-20 lg:py-28">
         <div className="mx-auto grid max-w-[1320px] items-stretch gap-12 px-5 md:grid-cols-2 lg:gap-20 lg:px-10">
-          <div className="min-h-[360px] overflow-hidden"><img src={clinicAsset.url} loading="lazy" alt="Dr. Christella Guzman at the clinic" className="h-full w-full object-cover" /></div>
+          <div className="min-h-[360px] overflow-hidden"><img src={clinicAsset.url} loading="lazy" alt="Dr. Christella Guzman at the clinic" className="h-full w-full object-cover object-[center_30%]" /></div>
           <div className="flex flex-col justify-center">
             <p className="section-kicker">About Dr. Guzman</p>
             <h2 className="section-heading mt-4">Christella Guzman, <em className="text-primary">DNP</em></h2>

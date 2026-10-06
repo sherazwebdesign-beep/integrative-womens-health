@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { ArrowUpRight, ChevronDown, Clock, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import wideLogo from "@/assets/Logo_Wide.asset.json";
 import logoAsset from "@/assets/womens-wellness-mark.asset.json";
 import { services, resources } from "@/lib/content";
 import { OPTIMANTRA_BOOKING, OPTIMANTRA_PORTAL, PHONE, PHONE_LABEL } from "@/lib/site";
@@ -13,13 +14,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-3 px-4 py-3 lg:px-10">
           <Link to="/" aria-label="Home" className="flex min-w-0 items-center gap-2.5">
-            <img src={logoAsset.url} alt="Integrative Women's Health Hawaii logo" className="h-11 w-9 shrink-0 object-contain sm:h-14 sm:w-11" width="44" height="56" />
-            <span className="flex min-w-0 flex-col leading-none"><span className="font-display text-[16px] font-semibold sm:text-[22px]">Integrative Women's Health</span><span className="mt-1 text-[9px] font-bold uppercase tracking-widest text-primary sm:text-[10px]">Hawaii</span></span>
+            <img src={wideLogo.url} alt="Integrative Women's Health Hawaii" className="h-11 w-auto sm:h-14" width="240" height="72" />
           </Link>
-          <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">
             <Link to="/" activeOptions={{ exact: true }} className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Home</Link>
             <Dropdown label="Services" base="services" items={services} />
             <Dropdown label="Patient Resources" base="resources" items={resources} />
+            <Link to="/weight-metabolic-health" className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Weight + Metabolic Health</Link>
             <Link to="/pricing" className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Pricing</Link>
           </nav>
           <div className="flex shrink-0 items-center gap-2">
@@ -34,6 +35,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             {services.map((x) => <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
             <p className="border-t border-border pt-3 text-xs font-bold uppercase text-primary">Patient Resources</p>
             {resources.map((x) => <Link key={x.slug} to="/resources/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
+            <Link to="/weight-metabolic-health" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Weight + Metabolic Health</Link>
             <Link to="/pricing" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Pricing</Link>
           </nav>
         )}
@@ -53,7 +55,7 @@ function Dropdown({ label, base, items }: { label: string; base: "services" | "r
       <div className="invisible absolute left-1/2 top-full z-50 w-[340px] -translate-x-1/2 pt-4 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         <div className="border border-border bg-background p-2 shadow-xl">
           {items.map((x) => (
-            <Link key={x.slug} to={base === "services" ? "/services/$slug" : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
+            <Link key={x.slug} to={base === "services" ? (x.slug === "medical-weight-loss" ? "/weight-metabolic-health" : "/services/$slug") : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
               <span className="block text-sm font-semibold">{x.name}</span><span className="text-xs text-muted-foreground">{x.short}</span>
             </Link>
           ))}
@@ -79,7 +81,7 @@ function Footer() {
             <div className="flex items-center gap-3"><img src={logoAsset.url} alt="" className="h-14 w-11 object-contain" width="44" height="56" loading="lazy" /><div className="font-display text-[22px] font-semibold leading-none">Integrative Women's Health <span className="block text-base text-primary">Hawaii</span></div></div>
             <p className="mt-4 max-w-[300px] text-sm leading-relaxed text-muted-foreground">Insurance-based gynecology together with functional, regenerative, and concierge care, led by Dr. Christella Guzman, DNP.</p>
           </div>
-          <div><p className="section-kicker">Patient Resources</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{resources.map((n) => <Link key={n.slug} to="/resources/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}<Link to="/pricing" className="hover:text-primary">Pricing</Link></div></div>
+          <div><p className="section-kicker">Patient Resources</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{resources.map((n) => <Link key={n.slug} to="/resources/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}<Link to="/weight-metabolic-health" className="hover:text-primary">Weight + Metabolic Health</Link><Link to="/pricing" className="hover:text-primary">Pricing</Link></div></div>
           <div><p className="section-kicker">Services</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{services.map((n) => <Link key={n.slug} to="/services/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}</div></div>
           <div><p className="section-kicker">Contact</p><div className="mt-4 space-y-3 text-sm text-foreground/75">
             <p className="flex gap-2"><MapPin size={16} className="mt-0.5 shrink-0 text-primary" />Honolulu, Hawaii</p>

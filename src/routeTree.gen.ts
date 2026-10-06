@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as WeightMetabolicHealthRouteImport } from './routes/weight-metabolic-health'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeightMetabolicHealthRoute = WeightMetabolicHealthRouteImport.update({
+  id: '/weight-metabolic-health',
+  path: '/weight-metabolic-health',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
@@ -38,12 +44,14 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/weight-metabolic-health': typeof WeightMetabolicHealthRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/weight-metabolic-health': typeof WeightMetabolicHealthRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -51,20 +59,38 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pricing': typeof PricingRoute
+  '/weight-metabolic-health': typeof WeightMetabolicHealthRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pricing' | '/resources/$slug' | '/services/$slug'
+  fullPaths:
+    | '/'
+    | '/pricing'
+    | '/weight-metabolic-health'
+    | '/resources/$slug'
+    | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pricing' | '/resources/$slug' | '/services/$slug'
-  id: '__root__' | '/' | '/pricing' | '/resources/$slug' | '/services/$slug'
+  to:
+    | '/'
+    | '/pricing'
+    | '/weight-metabolic-health'
+    | '/resources/$slug'
+    | '/services/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/pricing'
+    | '/weight-metabolic-health'
+    | '/resources/$slug'
+    | '/services/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PricingRoute: typeof PricingRoute
+  WeightMetabolicHealthRoute: typeof WeightMetabolicHealthRoute
   ResourcesSlugRoute: typeof ResourcesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
 }
@@ -83,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/weight-metabolic-health': {
+      id: '/weight-metabolic-health'
+      path: '/weight-metabolic-health'
+      fullPath: '/weight-metabolic-health'
+      preLoaderRoute: typeof WeightMetabolicHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources/$slug': {
@@ -105,6 +138,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PricingRoute: PricingRoute,
+  WeightMetabolicHealthRoute: WeightMetabolicHealthRoute,
   ResourcesSlugRoute: ResourcesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
 }
