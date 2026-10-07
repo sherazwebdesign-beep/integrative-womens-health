@@ -1,2 +1,5 @@
 - [x] Full checklist revision: 9-block Home, 5 service pages, 6 resource pages, Pricing, dropdown nav, real booking link.
 - [ ] Waiting on client: doctor's video links for the "coming soon" video slots.
+- [x] Use a few of the client's own photos in suitable sections (keep original images; replace stock only where fitting).
+- [x] Hero photo: show full head, better framing.
+- [x] Redesign services/resources subpages with grid layout, keep tabs.

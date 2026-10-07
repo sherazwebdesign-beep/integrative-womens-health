@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { OPTIMANTRA_BOOKING } from "@/lib/site";
 import markAsset from "@/assets/womens-wellness-mark.asset.json";
-import heroImg from "@/assets/wm-hero.jpg";
+import heroAsset from "@/assets/Christella_3.asset.json";
+const heroImg = heroAsset.url;
 import strengthImg from "@/assets/wm-strength.jpg";
 import foodImg from "@/assets/wm-food.jpg";
 import hikeImg from "@/assets/wm-hike.jpg";
@@ -60,7 +61,7 @@ function WeightPage() {
             <p className="mt-4 text-base leading-[1.8] text-foreground/80">Our personalized approach combines metabolic testing, nutrition, movement, muscle preservation and, when appropriate, GLP-1 therapy.</p>
             <div className="mt-8"><Book>Schedule a Weight + Metabolic Health Evaluation</Book></div>
           </div>
-          <img src={heroImg} alt="Healthy, strong midlife woman outdoors" width={1280} height={960} className="aspect-[4/5] w-full object-cover md:aspect-[4/5]" />
+          <img src={heroImg} alt="Dr. Guzman in a strong standing pose outdoors" width={1280} height={1920} className="aspect-[4/5] w-full object-cover object-top" />
         </div>
       </section>
 
