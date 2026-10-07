@@ -1,10 +1,11 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, Check, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, SiteLayout } from "@/components/site/SiteLayout";
 import { VideoCard } from "@/components/site/VideoCard";
 import { OPTIMANTRA_PORTAL } from "@/lib/site";
 import { resources } from "@/lib/content";
+import { SubTabs } from "@/components/site/SubTabs";
 
 export const Route = createFileRoute("/resources/$slug")({
   loader: ({ params }) => {
@@ -26,11 +27,7 @@ function ResourcePage() {
   return (
     <SiteLayout>
       <PageHero kicker={`Patient Resources / ${r.name}`} title={r.name} text={r.intro} />
-      <div className="border-b border-border">
-        <div className="mx-auto flex max-w-[1320px] gap-2 overflow-x-auto px-5 lg:px-10">
-          {resources.map((x) => <Link key={x.slug} to="/resources/$slug" params={{ slug: x.slug }} className={`shrink-0 border-b-2 px-4 py-4 text-xs font-bold uppercase tracking-wider ${x.slug === r.slug ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}>{x.name}</Link>)}
-        </div>
-      </div>
+      <SubTabs items={resources} current={r.slug} base="resources" />
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
           {isForms ? (
@@ -51,10 +48,10 @@ function ResourcePage() {
           ) : (
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {r.groups.map((g) => (
-                <article key={g.title}>
+                <article key={g.title} className="overflow-hidden border border-border bg-card transition-all hover:-translate-y-1 hover:border-mauve hover:shadow-lg">
                   <VideoCard title={g.title} />
-                  <h2 className="mt-4 font-display text-2xl font-semibold">{g.title}</h2>
-                  <p className="mt-2 text-sm text-muted-foreground">Video and written guide from Dr. Guzman — coming soon.</p>
+                  <div className="p-6"><p className="section-kicker">Video + guide</p><h2 className="mt-2 text-2xl">{g.title}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">Video and written guide from Dr. Guzman — coming soon.</p></div>
                 </article>
               ))}
             </div>
