@@ -6,6 +6,7 @@ import { OPTIMANTRA_BOOKING } from "@/lib/site";
 import { VideoCard } from "@/components/site/VideoCard";
 import interviewAsset from "@/assets/dr-guzman-perimenopause-interview.asset.json";
 import doctorAsset from "@/assets/aubergine.asset.json";
+import yogaAsset from "@/assets/Christella_8.asset.json";
 import clinicAsset from "@/assets/long_sleeve_blk_floral.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -57,8 +58,8 @@ function HomePage() {
             <p className="mt-6 font-display text-3xl italic text-primary">Feel Like Yourself Again.</p>
             <div className="mt-8 flex flex-wrap gap-3"><BookBtn>Book a Consultation</BookBtn></div>
           </div>
-          <figure className="relative m-0 h-[380px] overflow-hidden sm:h-[480px] lg:h-[560px]">
-            <img src={doctorAsset.url} alt="Dr. Christella Guzman, DNP" className="h-full w-full object-cover object-[center_20%]" fetchPriority="high" />
+          <figure className="relative m-0 mx-auto aspect-[4/5] w-full max-w-[480px] overflow-hidden bg-muted lg:max-w-[520px]">
+            <img src={doctorAsset.url} alt="Dr. Christella Guzman, DNP" className="h-full w-full object-cover object-top" fetchPriority="high" />
             <figcaption className="absolute bottom-0 left-0 bg-primary px-5 py-3 text-xs font-medium text-primary-foreground">Dr. Christella Guzman, DNP</figcaption>
           </figure>
         </div>
@@ -153,7 +154,7 @@ function HomePage() {
       {/* 7 Why us */}
       <section className="border-y border-border bg-cream py-20 lg:py-28">
         <div className="mx-auto grid max-w-[1320px] gap-12 px-5 md:grid-cols-[.9fr_1.1fr] lg:px-10">
-          <div><p className="section-kicker">Why Integrative Women's Health Hawaii</p><h2 className="section-heading mt-4">Everything you need, <em className="text-primary">under one roof.</em></h2></div>
+          <div><p className="section-kicker">Why Integrative Women's Health Hawaii</p><h2 className="section-heading mt-4">Everything you need, <em className="text-primary">under one roof.</em></h2><img src={yogaAsset.url} alt="Dr. Guzman outdoors in Honolulu" loading="lazy" className="mt-8 aspect-[4/3] w-full object-cover object-[center_35%]" /></div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {[["Advanced lab testing", "300+ biomarkers for a complete picture."], ["Hormone optimization", "Thoughtful, monitored hormone care."], ["Aesthetic & regenerative medicine", "PRP, exosomes, and anti-aging care."], ["Compassionate Honolulu care", "Unhurried visits with a provider who listens."]].map(([t, d]) => (
               <li key={t} className="border-l-2 border-primary bg-background p-6"><p className="font-display text-2xl font-semibold">{t}</p><p className="mt-2 text-sm text-muted-foreground">{d}</p></li>
