@@ -7,7 +7,7 @@ export function SubTabs({ items, current, base }: { items: { slug: string; name:
         {items.map((x) => {
           const active = x.slug === current;
           const cls = `shrink-0 rounded-full border px-5 py-2 text-xs uppercase tracking-wider transition-colors ${active ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-foreground/75 hover:border-mauve hover:text-primary"}`;
-          if (base === "services" && x.slug === "longevity-membership") return <Link key={x.slug} to="/longevity-membership" className={cls}>{x.name}</Link>;
+          if (base === "services" && x.slug === "medical-weight-loss") return <Link key={x.slug} to="/weight-metabolic-health" className={cls}>{x.name}</Link>;
           return base === "services"
             ? <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} className={cls}>{x.name}</Link>
             : <Link key={x.slug} to="/resources/$slug" params={{ slug: x.slug }} className={cls}>{x.name}</Link>;
