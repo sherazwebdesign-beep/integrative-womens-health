@@ -9,7 +9,9 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Routes: /, /services/$slug, /resources/$slug, /weight-metabolic-health, /pricing; section content lives in src/lib/content.ts so nav, footer and pages stay in sync.
+- Routes: /, /services/$slug, /resources/$slug, /longevity-membership, /pricing; section content lives in src/lib/content.ts so nav, footer and pages stay in sync.
 - Booking and portal URLs live only in `src/lib/site.ts` (real OptiMantra booking link); scheduler is a placeholder until a real link exists so availability is never fabricated.
 - Preserve original clinic media as lovable-assets pointers; never represent generated illustration as the real clinician.
 - Videos use `VideoCard` (youtube-nocookie / Vimeo dnt, no id = "coming soon" slot) so the doctor's videos can be dropped in by id.
+
+- The longevity membership has a dedicated seven-section route; retired weight-loss URLs redirect there so saved links remain usable.
