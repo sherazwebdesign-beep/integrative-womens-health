@@ -21,9 +21,9 @@ export const services: Section[] = [
     ],
   },
   {
-    slug: "medical-weight-loss", name: "Medical Weight Loss", short: "Weight & metabolic health, GLP-1 & coaching.",
-    intro: "Weight & metabolic health care that protects muscle and builds results you can maintain.",
-    groups: ["GLP-1 Therapy", "Metabolic Assessment", "Nutrition & Lifestyle Coaching", "Body Composition Analysis", "Muscle Preservation", "Long-Term Maintenance"].map((t) => ({ title: t, items: [] })),
+    slug: "longevity-membership", name: "Longevity & Functional Medicine Membership", short: "A 12-month precision health partnership.",
+    intro: "Assess, understand, optimize, and reassess your health with the Ultimate Longevity Membership.",
+    groups: ["Annual Health Assessment", "Biomarker & Health Metric Tracking", "Quarterly Clinical Reviews", "Prescription & Nutraceutical Review", "Four Lifestyle Pillars", "IV Therapy or Mindfulness"].map((t) => ({ title: t, items: [] })),
   },
   {
     slug: "iv-nutrient-therapy", name: "IV Nutrient Therapy", short: "Restore, immune, jet lag, hangover & aging.",
@@ -49,9 +49,9 @@ export const resources: Section[] = [
     groups: ["PRP", "Juvosonic Exosomes", "GHK-Cu Copper Peptides", "Hair Restoration", "Vampire Microneedling"].map((t) => ({ title: t, items: [] })),
   },
   {
-    slug: "weight-metabolic-health", name: "Weight & Metabolic Health", short: "GLP-1, insulin resistance & nutrition.",
-    intro: "Educational modules on metabolism, medications, and lasting habits.",
-    groups: ["GLP-1 Therapy", "Insulin Resistance", "Nutrition", "Protein Intake", "Muscle Preservation", "Maintenance"].map((t) => ({ title: t, items: [] })),
+    slug: "longevity", name: "Longevity & Functional Medicine", short: "Healthy aging, prevention & lifestyle.",
+    intro: "Educational modules on healthier aging, prevention, and lasting habits.",
+    groups: ["Healthy Aging", "Cardiovascular Prevention", "Nutrition", "Movement & Strength", "Sleep & Recovery", "Mindfulness"].map((t) => ({ title: t, items: [] })),
   },
   {
     slug: "iv-therapy", name: "IV Therapy", short: "Ingredients, prep, FAQs & aftercare.",
@@ -70,7 +70,7 @@ export const resources: Section[] = [
       { title: "New Patient Forms", items: ["Completed securely through the OptiMantra patient portal after booking."] },
       { title: "Insurance FAQ", items: ["Gynecology services are billed through your insurance.", "Functional, regenerative, IV, and membership services are self-pay."] },
       { title: "Lab Testing Instructions", items: ["Some panels require fasting — we'll tell you which before your draw.", "Hydrate well and bring a list of medications and supplements."] },
-      { title: "Membership FAQ", items: ["Membership is $235 + tax/month with a 12-month minimum commitment.", "Includes advanced labs, ongoing management, messaging, and 3 IV infusions per year."] },
+      { title: "Membership FAQ", items: ["Ultimate Longevity is a 12-month precision health membership. See the membership page for pricing and full details.", "Includes the annual assessment and specified labs, four quarterly reviews totaling four provider hours, medication review, and lifestyle reviews.", "Choose three eligible IV nutrient sessions OR three guided mindfulness sessions annually. Optional specialized tests may cost extra."] },
     ],
   },
 ];

@@ -16,26 +16,26 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <Link to="/" aria-label="Home" className="flex min-w-0 items-center gap-2.5">
             <img src={wideLogo.url} alt="Integrative Women's Health Hawaii" className="h-11 w-auto sm:h-14" width="240" height="72" />
           </Link>
-          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-3 2xl:flex">
             <Link to="/" activeOptions={{ exact: true }} className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Home</Link>
             <Dropdown label="Services" base="services" items={services} />
             <Dropdown label="Patient Resources" base="resources" items={resources} />
-            <Link to="/weight-metabolic-health" className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Weight + Metabolic Health</Link>
+            <Link to="/longevity-membership" className={`${navCls} max-w-[190px] leading-relaxed`} activeProps={{ className: "!border-primary !text-primary" }}>Longevity & Functional Medicine Membership</Link>
             <Link to="/pricing" className={navCls} activeProps={{ className: "!border-primary !text-primary" }}>Pricing</Link>
           </nav>
           <div className="flex shrink-0 items-center gap-2">
             <Button asChild variant="clinic" size="clinic" className="h-9 rounded-sm px-3 text-xs sm:h-10 sm:px-5"><a href={OPTIMANTRA_BOOKING} target="_blank" rel="noopener noreferrer">Book Now <ArrowUpRight className="hidden sm:block" /></a></Button>
-            <Button variant="clinicOutline" size="icon" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="rounded-sm xl:hidden" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
+            <Button variant="clinicOutline" size="icon" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="rounded-sm 2xl:hidden" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
           </div>
         </div>
         {open && (
-          <nav aria-label="Mobile navigation" className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-3 xl:hidden">
+          <nav aria-label="Mobile navigation" className="max-h-[75vh] overflow-y-auto border-t border-border bg-background px-5 py-3 2xl:hidden">
             <Link to="/" onClick={() => setOpen(false)} className="block border-b border-border py-3 text-sm font-bold uppercase">Home</Link>
             <p className="pt-3 text-xs font-bold uppercase text-primary">Services</p>
-            {services.map((x) => <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
+            {services.map((x) => <Link key={x.slug} to={x.slug === "longevity-membership" ? "/longevity-membership" : "/services/$slug"} params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
             <p className="border-t border-border pt-3 text-xs font-bold uppercase text-primary">Patient Resources</p>
             {resources.map((x) => <Link key={x.slug} to="/resources/$slug" params={{ slug: x.slug }} onClick={() => setOpen(false)} className="block py-2 pl-3 text-sm">{x.name}</Link>)}
-            <Link to="/weight-metabolic-health" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Weight + Metabolic Health</Link>
+            <Link to="/longevity-membership" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Longevity & Functional Medicine Membership</Link>
             <Link to="/pricing" onClick={() => setOpen(false)} className="block border-t border-border py-3 text-sm font-bold uppercase">Pricing</Link>
           </nav>
         )}
@@ -55,7 +55,7 @@ function Dropdown({ label, base, items }: { label: string; base: "services" | "r
       <div className="invisible absolute left-1/2 top-full z-50 w-[340px] -translate-x-1/2 pt-4 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         <div className="border border-border bg-background p-2 shadow-xl">
           {items.map((x) => (
-            <Link key={x.slug} to={base === "services" ? (x.slug === "medical-weight-loss" ? "/weight-metabolic-health" : "/services/$slug") : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
+            <Link key={x.slug} to={base === "services" ? (x.slug === "longevity-membership" ? "/longevity-membership" : "/services/$slug") : "/resources/$slug"} params={{ slug: x.slug }} className="block px-4 py-3 hover:bg-blush" activeProps={{ className: "bg-blush" }}>
               <span className="block text-sm font-semibold">{x.name}</span><span className="text-xs text-muted-foreground">{x.short}</span>
             </Link>
           ))}
@@ -81,8 +81,8 @@ function Footer() {
             <div className="flex items-center gap-3"><img src={logoAsset.url} alt="" className="h-14 w-11 object-contain" width="44" height="56" loading="lazy" /><div className="font-display text-[22px] font-semibold leading-none">Integrative Women's Health <span className="block text-base text-primary">Hawaii</span></div></div>
             <p className="mt-4 max-w-[300px] text-sm leading-relaxed text-muted-foreground">Insurance-based gynecology together with functional, regenerative, and concierge care, led by Dr. Christella Guzman, DNP.</p>
           </div>
-          <div><p className="section-kicker">Patient Resources</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{resources.map((n) => <Link key={n.slug} to="/resources/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}<Link to="/weight-metabolic-health" className="hover:text-primary">Weight + Metabolic Health</Link><Link to="/pricing" className="hover:text-primary">Pricing</Link></div></div>
-          <div><p className="section-kicker">Services</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{services.map((n) => <Link key={n.slug} to="/services/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}</div></div>
+          <div><p className="section-kicker">Patient Resources</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{resources.map((n) => <Link key={n.slug} to="/resources/$slug" params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}<Link to="/longevity-membership" className="hover:text-primary">Longevity & Functional Medicine Membership</Link><Link to="/pricing" className="hover:text-primary">Pricing</Link></div></div>
+          <div><p className="section-kicker">Services</p><div className="mt-4 grid gap-y-2.5 text-sm text-foreground/75">{services.map((n) => <Link key={n.slug} to={n.slug === "longevity-membership" ? "/longevity-membership" : "/services/$slug"} params={{ slug: n.slug }} className="hover:text-primary">{n.name}</Link>)}</div></div>
           <div><p className="section-kicker">Contact</p><div className="mt-4 space-y-3 text-sm text-foreground/75">
             <p className="flex gap-2"><MapPin size={16} className="mt-0.5 shrink-0 text-primary" />Honolulu, Hawaii</p>
             <a className="flex gap-2 hover:text-primary" href={PHONE}><Phone size={16} className="mt-0.5 shrink-0 text-primary" />{PHONE_LABEL}</a>
