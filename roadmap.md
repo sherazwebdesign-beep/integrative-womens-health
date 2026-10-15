@@ -3,6 +3,3 @@
 - [x] Use a few of the client's own photos in suitable sections (keep original images; replace stock only where fitting).
 - [x] Hero photo: show full head, better framing.
 - [x] Redesign services/resources subpages with grid layout, keep tabs.
-- [ ] Replace weight/metabolic page and links with seven-section Ultimate Longevity membership page.
-- [ ] Remove membership pricing from Pricing and align membership benefits elsewhere.
-- [ ] Verify new page, navigation, accordions, booking links, and mobile layout.

@@ -33,7 +33,7 @@ const steps = ["Assess", "Understand", "Optimize", "Reassess"];
 const cards = [
   { icon: HeartPulse, title: "Functional & Longevity Medicine", slug: "functional-longevity-medicine" },
   { icon: Sparkles, title: "Regenerative & Aesthetic Medicine", slug: "regenerative-aesthetic" },
-  { icon: Flame, title: "Longevity & Functional Medicine Membership", slug: "longevity-membership" },
+  { icon: Flame, title: "Weight & Metabolic Health (Medical Weight Loss)", slug: "medical-weight-loss" },
   { icon: Droplets, title: "IV Nutrient Therapy", slug: "iv-nutrient-therapy" },
   { icon: Stethoscope, title: "Gynecology", slug: "gynecology" },
 ];
@@ -111,7 +111,7 @@ function HomePage() {
           <h2 className="section-heading mt-4">Find your path.</h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((c) => (
-              <Link key={c.slug} to={c.slug === "longevity-membership" ? "/longevity-membership" : "/services/$slug"} params={{ slug: c.slug }} className="group flex min-h-[220px] flex-col border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
+              <Link key={c.slug} to={c.slug === "medical-weight-loss" ? "/weight-metabolic-health" : "/services/$slug"} params={{ slug: c.slug }} className="group flex min-h-[220px] flex-col border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
                 <span className="flex size-12 items-center justify-center rounded-full bg-blush text-primary"><c.icon size={22} strokeWidth={1.5} /></span>
                 <h3 className="mt-6 font-display text-[26px] font-semibold leading-tight">{c.title}</h3>
                 <span className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-bold uppercase text-primary">Learn more <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></span>
